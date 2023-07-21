@@ -1,0 +1,74 @@
+[
+    {
+        "label": "verificar_saldo",
+        "kind": 2,
+        "importPath": "extrato",
+        "description": "extrato",
+        "peekOfCode": "def verificar_saldo(saldo, valor):\n    \"\"\"\n    Verifica se o saldo está positivo antes de realizar uma operação.\n    Args:\n        saldo: O saldo atual da conta.\n        valor: O valor da operação.\n    Returns:\n        True se o saldo for positivo, False caso contrário.\n    \"\"\"\n    if saldo < 0:",
+        "detail": "extrato",
+        "documentation": {}
+    },
+    {
+        "label": "mostrar_saldo",
+        "kind": 2,
+        "importPath": "extrato",
+        "description": "extrato",
+        "peekOfCode": "def mostrar_saldo(saldo):\n    \"\"\"\n    Exibe o saldo disponível.\n    Args:\n        saldo: O saldo atual da conta.\n    \"\"\"\n    print(f\"Saldo disponível: R$ {saldo:.2f}\")\n# A variável menu é definida como uma string delimitada por três aspas triplas \"\"\",\n# o que permite que a string abranja várias linhas\nmenu = \"\"\"",
+        "detail": "extrato",
+        "documentation": {}
+    },
+    {
+        "label": "menu",
+        "kind": 5,
+        "importPath": "extrato",
+        "description": "extrato",
+        "peekOfCode": "menu = \"\"\"\n[d] Depositar \n[s] Sacar\n[e] Extrato\n[t] Transferência Bancária\n[q] Sair\n=> \"\"\"\nsaldo = 0\nlimite = 500\nextrato = \"\"",
+        "detail": "extrato",
+        "documentation": {}
+    },
+    {
+        "label": "saldo",
+        "kind": 5,
+        "importPath": "extrato",
+        "description": "extrato",
+        "peekOfCode": "saldo = 0\nlimite = 500\nextrato = \"\"\nnumero_saques = 0\nLIMITES_SAQUES = 3\n# Exibindo o saldo inicial\nmostrar_saldo(saldo)\n# Criando um loop infinito com while True no bloco de operação até que uma condição de saída seja alcançada \n# ou o loop seja interrompido explicitamente com uma instrução de break.\nwhile True:",
+        "detail": "extrato",
+        "documentation": {}
+    },
+    {
+        "label": "limite",
+        "kind": 5,
+        "importPath": "extrato",
+        "description": "extrato",
+        "peekOfCode": "limite = 500\nextrato = \"\"\nnumero_saques = 0\nLIMITES_SAQUES = 3\n# Exibindo o saldo inicial\nmostrar_saldo(saldo)\n# Criando um loop infinito com while True no bloco de operação até que uma condição de saída seja alcançada \n# ou o loop seja interrompido explicitamente com uma instrução de break.\nwhile True:\n    opcao = input(menu)",
+        "detail": "extrato",
+        "documentation": {}
+    },
+    {
+        "label": "extrato",
+        "kind": 5,
+        "importPath": "extrato",
+        "description": "extrato",
+        "peekOfCode": "extrato = \"\"\nnumero_saques = 0\nLIMITES_SAQUES = 3\n# Exibindo o saldo inicial\nmostrar_saldo(saldo)\n# Criando um loop infinito com while True no bloco de operação até que uma condição de saída seja alcançada \n# ou o loop seja interrompido explicitamente com uma instrução de break.\nwhile True:\n    opcao = input(menu)\n    if opcao == \"d\":",
+        "detail": "extrato",
+        "documentation": {}
+    },
+    {
+        "label": "numero_saques",
+        "kind": 5,
+        "importPath": "extrato",
+        "description": "extrato",
+        "peekOfCode": "numero_saques = 0\nLIMITES_SAQUES = 3\n# Exibindo o saldo inicial\nmostrar_saldo(saldo)\n# Criando um loop infinito com while True no bloco de operação até que uma condição de saída seja alcançada \n# ou o loop seja interrompido explicitamente com uma instrução de break.\nwhile True:\n    opcao = input(menu)\n    if opcao == \"d\":\n        try:",
+        "detail": "extrato",
+        "documentation": {}
+    },
+    {
+        "label": "LIMITES_SAQUES",
+        "kind": 5,
+        "importPath": "extrato",
+        "description": "extrato",
+        "peekOfCode": "LIMITES_SAQUES = 3\n# Exibindo o saldo inicial\nmostrar_saldo(saldo)\n# Criando um loop infinito com while True no bloco de operação até que uma condição de saída seja alcançada \n# ou o loop seja interrompido explicitamente com uma instrução de break.\nwhile True:\n    opcao = input(menu)\n    if opcao == \"d\":\n        try:\n            valor = float(input(\"Informe o valor do depósito: \"))",
+        "detail": "extrato",
+        "documentation": {}
+    }
+]
