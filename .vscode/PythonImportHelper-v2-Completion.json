@@ -1,73 +1,100 @@
 [
     {
-        "label": "verificar_saldo",
-        "kind": 2,
-        "importPath": "extrato",
-        "description": "extrato",
-        "peekOfCode": "def verificar_saldo(saldo, valor):\n    \"\"\"\n    Verifica se o saldo está positivo antes de realizar uma operação.\n    Args:\n        saldo: O saldo atual da conta.\n        valor: O valor da operação.\n    Returns:\n        True se o saldo for positivo, False caso contrário.\n    \"\"\"\n    if saldo < 0:",
-        "detail": "extrato",
-        "documentation": {}
-    },
-    {
-        "label": "mostrar_saldo",
-        "kind": 2,
-        "importPath": "extrato",
-        "description": "extrato",
-        "peekOfCode": "def mostrar_saldo(saldo):\n    \"\"\"\n    Exibe o saldo disponível.\n    Args:\n        saldo: O saldo atual da conta.\n    \"\"\"\n    print(f\"Saldo disponível: R$ {saldo:.2f}\")\n# A variável menu é definida como uma string delimitada por três aspas triplas \"\"\",\n# o que permite que a string abranja várias linhas\nmenu = \"\"\"",
-        "detail": "extrato",
+        "label": "textwrap",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "textwrap",
+        "description": "textwrap",
+        "detail": "textwrap",
         "documentation": {}
     },
     {
         "label": "menu",
-        "kind": 5,
+        "kind": 2,
         "importPath": "extrato",
         "description": "extrato",
-        "peekOfCode": "menu = \"\"\"\n[d] Depositar \n[s] Sacar\n[e] Extrato\n[t] Transferência Bancária\n[q] Sair\n=> \"\"\"\nsaldo = 0\nlimite = 500\nextrato = \"\"",
+        "peekOfCode": "def menu():\n    menu = \"\"\"\\n\n    ================ MENU ================\n    [pf]\\tConta Pessoa Física\n    [d]\\tDepositar\n    [s]\\tSacar\n    [e]\\tExtrato\n    [lc]\\tListar contas\n    [nu]\\tNovo usuário\n    [q]\\tSair",
         "detail": "extrato",
         "documentation": {}
     },
     {
-        "label": "saldo",
-        "kind": 5,
+        "label": "criar_conta_fisica",
+        "kind": 2,
         "importPath": "extrato",
         "description": "extrato",
-        "peekOfCode": "saldo = 0\nlimite = 500\nextrato = \"\"\nnumero_saques = 0\nLIMITES_SAQUES = 3\n# Exibindo o saldo inicial\nmostrar_saldo(saldo)\n# Criando um loop infinito com while True no bloco de operação até que uma condição de saída seja alcançada \n# ou o loop seja interrompido explicitamente com uma instrução de break.\nwhile True:",
+        "peekOfCode": "def criar_conta_fisica(agencia, numero_conta, usuarios):\n    cpf = input(\"Informe o CPF do usuário: \")\n    usuario = filtrar_usuario(cpf, usuarios)\n    if usuario:\n        print(\"\\n=== Conta criada com sucesso! ===\")\n        return {\"agencia\": agencia, \"numero_conta\": numero_conta, \"usuario\": usuario, \"dependentes\": []}\n    print(\"\\nUsuário não encontrado. Redirecionando para o cadastro de titular de pessoa física.\")\n    nome_completo = input(\"Informe o nome completo: \")\n    data_nascimento = input(\"Informe a data de nascimento (dd/mm/aaaa): \")\n    endereco = input(\"Informe o endereço completo: \")",
         "detail": "extrato",
         "documentation": {}
     },
     {
-        "label": "limite",
-        "kind": 5,
+        "label": "criar_dependentes",
+        "kind": 2,
         "importPath": "extrato",
         "description": "extrato",
-        "peekOfCode": "limite = 500\nextrato = \"\"\nnumero_saques = 0\nLIMITES_SAQUES = 3\n# Exibindo o saldo inicial\nmostrar_saldo(saldo)\n# Criando um loop infinito com while True no bloco de operação até que uma condição de saída seja alcançada \n# ou o loop seja interrompido explicitamente com uma instrução de break.\nwhile True:\n    opcao = input(menu)",
+        "peekOfCode": "def criar_dependentes(conta):\n    dependentes = []\n    while True:\n        opcao_dependente = input(\"\\nDeseja cadastrar um dependente? (s/n): \").lower()\n        if opcao_dependente != \"s\":\n            break\n        nome_completo = input(\"Informe o nome completo do dependente: \")\n        cpf_dependente = input(\"Informe o CPF do dependente: \")\n        data_nascimento_dependente = input(\"Informe a data de nascimento do dependente (dd/mm/aaaa): \")\n        endereco_dependente = input(\"Informe o endereço completo do dependente: \")",
         "detail": "extrato",
         "documentation": {}
     },
     {
-        "label": "extrato",
-        "kind": 5,
+        "label": "depositar",
+        "kind": 2,
         "importPath": "extrato",
         "description": "extrato",
-        "peekOfCode": "extrato = \"\"\nnumero_saques = 0\nLIMITES_SAQUES = 3\n# Exibindo o saldo inicial\nmostrar_saldo(saldo)\n# Criando um loop infinito com while True no bloco de operação até que uma condição de saída seja alcançada \n# ou o loop seja interrompido explicitamente com uma instrução de break.\nwhile True:\n    opcao = input(menu)\n    if opcao == \"d\":",
+        "peekOfCode": "def depositar(saldo, valor, extrato, /):\n    if valor > 0:\n        saldo += valor\n        extrato += f\"Depósito:\\tR$ {valor:.2f}\\n\"\n        print(\"\\n=== Depósito realizado com sucesso! ===\")\n    else:\n        print(\"\\n@@@ Operação falhou! O valor informado é inválido. @@@\")\n    return saldo, extrato\ndef sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):\n    excedeu_saldo = valor > saldo",
         "detail": "extrato",
         "documentation": {}
     },
     {
-        "label": "numero_saques",
-        "kind": 5,
+        "label": "sacar",
+        "kind": 2,
         "importPath": "extrato",
         "description": "extrato",
-        "peekOfCode": "numero_saques = 0\nLIMITES_SAQUES = 3\n# Exibindo o saldo inicial\nmostrar_saldo(saldo)\n# Criando um loop infinito com while True no bloco de operação até que uma condição de saída seja alcançada \n# ou o loop seja interrompido explicitamente com uma instrução de break.\nwhile True:\n    opcao = input(menu)\n    if opcao == \"d\":\n        try:",
+        "peekOfCode": "def sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):\n    excedeu_saldo = valor > saldo\n    excedeu_limite = valor > limite\n    excedeu_saques = numero_saques >= limite_saques\n    if excedeu_saldo:\n        print(\"\\n@@@ Operação falhou! Você não tem saldo suficiente. @@@\")\n    elif excedeu_limite:\n        print(\"\\n@@@ Operação falhou! O valor do saque excede o limite. @@@\")\n    elif excedeu_saques:\n        print(\"\\n@@@ Operação falhou! Número máximo de saques excedido. @@@\")",
         "detail": "extrato",
         "documentation": {}
     },
     {
-        "label": "LIMITES_SAQUES",
-        "kind": 5,
+        "label": "exibir_extrato",
+        "kind": 2,
         "importPath": "extrato",
         "description": "extrato",
-        "peekOfCode": "LIMITES_SAQUES = 3\n# Exibindo o saldo inicial\nmostrar_saldo(saldo)\n# Criando um loop infinito com while True no bloco de operação até que uma condição de saída seja alcançada \n# ou o loop seja interrompido explicitamente com uma instrução de break.\nwhile True:\n    opcao = input(menu)\n    if opcao == \"d\":\n        try:\n            valor = float(input(\"Informe o valor do depósito: \"))",
+        "peekOfCode": "def exibir_extrato(saldo, /, *, extrato):\n    print(\"\\n================ EXTRATO ================\")\n    print(\"Não foram realizadas movimentações.\" if not extrato else extrato)\n    print(f\"\\nSaldo:\\t\\tR$ {saldo:.2f}\")\n    print(\"==========================================\")\ndef criar_usuario(usuarios):\n    cpf = input(\"Informe o CPF (somente número): \")\n    usuario = filtrar_usuario(cpf, usuarios)\n    if usuario:\n        print(\"\\n@@@ Já existe usuário com esse CPF! @@@\")",
+        "detail": "extrato",
+        "documentation": {}
+    },
+    {
+        "label": "criar_usuario",
+        "kind": 2,
+        "importPath": "extrato",
+        "description": "extrato",
+        "peekOfCode": "def criar_usuario(usuarios):\n    cpf = input(\"Informe o CPF (somente número): \")\n    usuario = filtrar_usuario(cpf, usuarios)\n    if usuario:\n        print(\"\\n@@@ Já existe usuário com esse CPF! @@@\")\n        return\n    nome = input(\"Informe o nome completo: \")\n    data_nascimento = input(\"Informe a data de nascimento (dd-mm-aaaa): \")\n    endereco = input(\"Informe o endereço (logradouro, nro - bairro - cidade/sigla estado): \")\n    usuarios.append({\"nome\": nome, \"data_nascimento\": data_nascimento, \"cpf\": cpf, \"endereco\": endereco})",
+        "detail": "extrato",
+        "documentation": {}
+    },
+    {
+        "label": "filtrar_usuario",
+        "kind": 2,
+        "importPath": "extrato",
+        "description": "extrato",
+        "peekOfCode": "def filtrar_usuario(cpf, usuarios):\n    usuarios_filtrados = [usuario for usuario in usuarios if usuario[\"cpf\"] == cpf]\n    return usuarios_filtrados[0] if usuarios_filtrados else None\ndef listar_contas(contas):\n    for conta in contas:\n        linha = f\"\"\"\\\n            Agência:\\t{conta['agencia']}\n            C/C:\\t\\t{conta['numero_conta']}\n            Titular:\\t{conta['usuario']['nome']}\n        \"\"\"",
+        "detail": "extrato",
+        "documentation": {}
+    },
+    {
+        "label": "listar_contas",
+        "kind": 2,
+        "importPath": "extrato",
+        "description": "extrato",
+        "peekOfCode": "def listar_contas(contas):\n    for conta in contas:\n        linha = f\"\"\"\\\n            Agência:\\t{conta['agencia']}\n            C/C:\\t\\t{conta['numero_conta']}\n            Titular:\\t{conta['usuario']['nome']}\n        \"\"\"\n        print(\"=\" * 100)\n        print(textwrap.dedent(linha))\ndef main():",
+        "detail": "extrato",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "extrato",
+        "description": "extrato",
+        "peekOfCode": "def main():\n    LIMITE_SAQUES = 3\n    AGENCIA = \"0001\"\n    saldo = 0\n    limite = 500\n    extrato = \"\"\n    numero_saques = 0\n    usuarios = []\n    contas = []\n    buscar_conta_por_id = []",
         "detail": "extrato",
         "documentation": {}
     }
